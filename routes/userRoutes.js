@@ -1,6 +1,6 @@
 import express from "express";
 import { isAuthenticated } from "../middlewares/auth.js";
-import { changePIN, checkBalance, deposit, getATMNumber, login, register, verifyPin, withdraw } from "../controllers/userController.js";
+import { changePIN, checkBalance, deposit, getATMNumber, getMyProfile, login, register, verifyPin, withdraw } from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -11,6 +11,7 @@ router.post("/login", login);
 router.use(isAuthenticated);
 
 router.get("/balance", checkBalance);
+router.get("/myprofile", getMyProfile);
 router.get("/atmNumber", getATMNumber);
 router.patch("/deposit", deposit);
 router.patch("/withdraw", withdraw);

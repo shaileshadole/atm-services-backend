@@ -132,6 +132,14 @@ export const getATMNumber = (req, res) => {
     })
 }
 
+export const getMyProfile = (req, res) => {
+
+    res.status(200).json({
+        success: true,
+        profile : req.user,
+    })
+}
+
 
 //Verify PIN endpoint
 export const verifyPin = async (req, res, next) => {    
