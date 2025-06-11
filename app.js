@@ -12,11 +12,14 @@ config({
     path: "./data/config.env",
 })
 
-app.use(cors({
+// CORS Setup
+const corsOptions = {
     origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    credentials: true, //permission to include user credentials such as cookies and authentication headers
-}));
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 //Using middlewares
 app.use(express.json());
